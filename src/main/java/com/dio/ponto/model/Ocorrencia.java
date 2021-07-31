@@ -1,7 +1,6 @@
 package com.dio.ponto.model;
 
 import lombok.*;
-import javax.persistence.ManyToOne;
 
 @Setter
 @Getter
@@ -9,9 +8,8 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class Localidade {
-    private Long id;
-    @ManyToOne
-    private NivelAcesso nivelAcesso;
+public class Ocorrencia {
+    private long id;
+    private String nome;
     private String descricao;
 }
