@@ -2,6 +2,8 @@ package com.dio.ponto.model;
 
 import lombok.*;
 
+import javax.persistence.OneToMany;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -9,5 +11,8 @@ import lombok.*;
 @EqualsAndHashCode
 @Builder
 public class Localidade {
-    
+    private Long id;
+    @OneToMany
+    private NivelAcesso nivelAcesso;
+    private String descricao;
 }
