@@ -2,8 +2,7 @@ package com.dio.ponto.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Movimentacao {
     @Embeddable
     @AllArgsConstructor
@@ -23,12 +23,15 @@ public class Movimentacao {
         private Long idMovimento;
         private Long idUsuario;
     }
+    @Id
     @EmbeddedId
     private MovimentacaoId id;
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private BigDecimal periodo;
+    @ManyToOne
     private Ocorrencia ocorrencia;
+    @ManyToOne
     private Calendario calendario;
 
 }
