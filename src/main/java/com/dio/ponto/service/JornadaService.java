@@ -4,6 +4,11 @@ import com.dio.ponto.model.JornadaTrabalho;
 import com.dio.ponto.repository.JornadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JornadaService {
@@ -19,6 +24,11 @@ public class JornadaService {
         return jornadaRepository.save(j);
     }
 
+    public List<JornadaTrabalho> findAll() {
+        return jornadaRepository.findAll();
+    }
 
-
+    public Optional<JornadaTrabalho> findById(Long idJornada) {
+        return jornadaRepository.findById(idJornada);
+    }
 }
