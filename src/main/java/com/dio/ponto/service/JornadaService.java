@@ -24,6 +24,10 @@ public class JornadaService {
         return jornadaRepository.save(j);
     }
 
+    public JornadaTrabalho updateJornada(JornadaTrabalho j){
+        return jornadaRepository.save(j);
+    }
+
     public List<JornadaTrabalho> findAll() {
         return jornadaRepository.findAll();
     }
@@ -31,4 +35,9 @@ public class JornadaService {
     public Optional<JornadaTrabalho> findById(Long idJornada) {
         return jornadaRepository.findById(idJornada);
     }
+
+    public void deleteJornada(Long idJornada) {
+        jornadaRepository.deleteById(idJornada);
+    }
+
 }

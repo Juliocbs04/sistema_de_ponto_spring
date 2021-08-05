@@ -7,7 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.NoSuchElementException;
+
 
 @RestController
 @RequestMapping("/jornada")
@@ -27,7 +28,7 @@ public class JornadaController {
 
     @GetMapping("/{idJornada}")
     public ResponseEntity getJornadaByID(@PathVariable("idJornada") Long idJornada) throws Exception {
-        return ResponseEntity.ok(jornadaService.findById(idJornada).orElseThrow(()-> new Exception("jornada não encontrada")));
+        return ResponseEntity.ok(jornadaService.findById(idJornada).orElseThrow(()-> new NoSuchElementException("Jornada não encontrada")));
 
     }
 }
