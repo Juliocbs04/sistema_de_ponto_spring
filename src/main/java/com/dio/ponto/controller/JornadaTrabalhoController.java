@@ -3,6 +3,7 @@ package com.dio.ponto.controller;
 import com.dio.ponto.model.JornadaTrabalho;
 import com.dio.ponto.service.JornadaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,20 @@ public class JornadaTrabalhoController {
     @GetMapping("/{idJornada}")
     public ResponseEntity getJornadaByID(@PathVariable("idJornada") Long idJornada) throws Exception {
         return ResponseEntity.ok(jornadaService.findById(idJornada).orElseThrow(()-> new NoSuchElementException("Jornada não encontrada")));
-
     }
+
+    @PutMapping
+    public JornadaTrabalho updateJornada(@RequestBody JornadaTrabalho jornadaTrabalho){
+        return jornadaService.updateJornada(jornadaTrabalho);
+    }
+
+    @DeleteMapping("/{idJornada}")
+    public void deleteByID(@PathVariable("idJornada") Long idJornada) throws Exception {
+        try{
+            jornadaService.deleteJornada(idJornada);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }
