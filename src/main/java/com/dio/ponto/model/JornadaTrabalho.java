@@ -8,10 +8,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Builder;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -19,7 +20,7 @@ import javax.persistence.Id;
 @Entity
 public class JornadaTrabalho {
     @Id
+    @GeneratedValue
     private long id;
     private String descricao;
-
 }

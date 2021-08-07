@@ -15,10 +15,11 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 public class Movimentacao {
-    @Embeddable
+
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
+    @Embeddable
     public class MovimentacaoId implements Serializable {
         private Long idMovimento;
         private Long idUsuario;
