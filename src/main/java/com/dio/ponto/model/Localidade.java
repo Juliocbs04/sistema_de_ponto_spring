@@ -1,6 +1,7 @@
 package com.dio.ponto.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode
 @Builder
 @Entity
+@Audited
 public class Localidade {
     @Id
     private Long id;
